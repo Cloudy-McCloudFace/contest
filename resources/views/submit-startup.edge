@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>OVHcloud Contest</title>
+</head>
+<body>
+  <section>
+    <h1>Submit Startup</h1>
+    <form action="{{ route('submit-startup') }}" method="POST">
+       {{ csrfField() }}
+      <label for="name">name</label>
+      <input type="text" name="name" id="name">
+
+      <label for="description">description</label>
+      <input type="textarea" name="description" id="description">
+
+      <label for="url">url</label>
+      <input type="text" name="url" id="url">
+
+      <label for="logo_url">logo_url</label>
+      <input type="text" name="logo_url" id="logo_url">
+      
+      <input type="submit" value="submit">
+    </form>
+  </section>
+</body>
+</html>
