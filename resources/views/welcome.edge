@@ -3,17 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <title>OVHcloud Contest</title>
-  {{ style('style') }}
 </head>
 <body>
+    <header>
+        <ul>
+          <li><a href="/">Front</a></li>
+          @loggedIn
+          <li><a href="/home">Home/Dashboard</a></li> 
+          <li><a href="/submit-startup">Submit Start up</a></li>  
+        @endloggedIn
+          <li><a href="/login">Login</a></li>  
+          <li><a href="/register">Register</a></li>  
+        </ul>
+      </header>
   <section>
-    <div class="logo"></div>
-    <div class="title"></div>
+    <h1>OVH Start up Contest </h1>
     <div class="subtitle">
-      <p>AdonisJs simplicity will make you feel confident about your code</p>
-      <p>
-        Don't know where to start? Read the <a href="https://adonisjs.com/docs">documentation</a>.
-      </p>
+      <p>If any profits are generated, they will all be donated to the center for kids who can't read good and want to learn how to do other stuff good too</p>
     </div>
   </section>
 </body>
