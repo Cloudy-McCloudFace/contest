@@ -18,7 +18,7 @@ const Route = use('Route')
 
 Route.on('/').render('welcome')
 
-Route.on('/home').render('home')
+Route.get('/home', 'HomeController.render')
      .middleware('auth')
 
 Route.on('/register').render('register')
@@ -30,3 +30,6 @@ Route.post('/login', 'UserController.login').as('login')
 Route.on('/submit-startup').render('submit-startup')
      .middleware('auth')
 Route.post('/submit-startup', 'StartupController.create').as('submit-startup')
+
+Route.post('/vote/:startup_id', 'VoteController.submitVote')
+     .middleware('auth')

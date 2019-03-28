@@ -38,6 +38,10 @@ class User extends Model {
   startup () {
     return this.hasOne('App/Models/Token')
   }
+
+  vote () {
+    return this.hasOne('App/Models/Vote')
+  }
 }
 
 module.exports = User

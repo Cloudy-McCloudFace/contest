@@ -5,13 +5,38 @@
   <title>OVHcloud Contest</title>
 </head>
 <body>
+  <header>
+    <ul>
+      <li><a href="/">Front</a></li>
+      @loggedIn
+      <li><a href="/home">Home/Dashboard</a></li> 
+      <li><a href="/submit-startup">Submit Start up</a></li>  
+    @endloggedIn
+      <li><a href="/login">Login</a></li>  
+      <li><a href="/register">Register</a></li>  
+    </ul>
+  </header>
   <section>
    <h1>HOME</h1>
    @loggedIn
-  You are logged in!
-@else
-  <a href="/login">Click here</a> to login.
-@endloggedIn
+      You are logged in!
+      {{ startups[0].name }}
+      @each(startup in startups)
+        <div class="startup">
+          <div class="startup-data">
+            <h3>{{ startup.name }}</h3>
+            <p>{{ startup.description }}</p>
+          </div>
+          <div class="startup-actions">
+            <form action="/vote/{{ startup.id }}" method="POST">
+              <input type="submit" value="Vote for me!">
+            </form>
+          </div>
+        </div>
+      @endeach
+   @else
+    <a href="/login">Click here</a> to login.
+  @endloggedIn
   </section>
 </body>
 </html>
