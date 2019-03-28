@@ -4,7 +4,11 @@ const Startup = use('App/Models/Startup')
 class HomeController {
     async render ({ view }) {
         try { 
-            const allStartups = await Startup.all()
+            const allStartups = await Startup   
+                                .query()
+                                .withCount('votes')
+                                .fetch()
+ 
             console.log(allStartups.toJSON())
             return view.render('home', { startups: allStartups.toJSON() })
 
