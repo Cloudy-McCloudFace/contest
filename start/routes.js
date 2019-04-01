@@ -27,6 +27,8 @@ Route.post('/register', 'UserController.register').as('register')
 Route.on('/login').render('login')
 Route.post('/login', 'UserController.login').as('login')
 
+Route.get('/logout', 'UserController.logout')
+
 Route.on('/submit-startup').render('submit-startup')
      .middleware('auth')
 Route.post('/submit-startup', 'StartupController.create').as('submit-startup')

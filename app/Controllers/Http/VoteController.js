@@ -6,18 +6,24 @@ class VoteController {
         try {
             const startup_id = params.startup_id
             
-            const vote = await Vote.findOrCreate(
-                {
-                    startup_id
-                },
-                {
-                    startup_id,
-                    user_id: auth.user.id
-                }
-            )
-      
-            await vote.save()
-      
+            const existingVote = await Vote.findBy('user_id', auth.user.id);
+
+            if (existingVote === null) {
+                const newVote = new Vote()
+                newVote.user_id = auth.user.id
+                newVote.startup_id = startup_id
+
+                await newVote.save()
+            }
+            else {
+                await existingVote.delete()
+                const newVote = new Vote()
+                newVote.user_id = auth.user.id
+                newVote.startup_id = startup_id
+
+                await newVote.save()
+            }
+
             response.redirect('/home')
         } 
         catch (error) {

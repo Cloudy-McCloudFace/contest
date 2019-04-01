@@ -7,10 +7,11 @@
     {{ startups[0].name }}
     @each(startup in startups)
       <div class="startup">
+      <img src="{{ startup.logo_url }}"/>
         <div class="startup-data">
           <h3>{{ startup.name }}</h3>
           <p>{{ startup.description }}</p>
-        <p>Total Votes: <strong>{{ startup['__meta__']['votes_count'] }}</strong></p>
+          <p>Total Votes: <strong>{{ startup['__meta__']['votes_count'] }}</strong></p>
         </div>
         <div class="startup-actions">
           <form action="/vote/{{ startup.id }}" method="POST">

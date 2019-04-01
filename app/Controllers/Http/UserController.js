@@ -14,6 +14,10 @@ class UserController {
             console.log(error);
         }
     }
+    async logout ({ auth, response }) {
+        await auth.logout()
+        response.redirect('/')
+    }
     async register ({ request, response }) {
         try { 
             const { username, email, password } = request.all()
@@ -30,7 +34,7 @@ class UserController {
       
             await user.save()
       
-            response.redirect('/home')
+            response.redirect('/')
 
         }
         catch (error) {
