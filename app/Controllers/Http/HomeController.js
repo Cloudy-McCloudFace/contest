@@ -10,7 +10,6 @@ class HomeController {
                                 .withCount('votes')
                                 .fetch()
  
-            console.log(allStartups.toJSON())
             return view.render('pages.home', { startups: allStartups.toJSON() })
 
         }
