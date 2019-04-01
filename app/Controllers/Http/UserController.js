@@ -34,7 +34,7 @@ class UserController {
       
             await user.save()
       
-            response.redirect('/')
+            response.redirect('/login')
 
         }
         catch (error) {

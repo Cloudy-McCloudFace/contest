@@ -14,6 +14,7 @@ class StartupSchema extends Schema {
       table.string('logo_url', 500).notNullable()
       table.integer('user_id').unsigned().references('id').inTable('users')
         .notNullable()
+      table.boolean('approved').notNullable()
     })
   }
 

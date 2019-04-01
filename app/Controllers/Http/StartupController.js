@@ -14,7 +14,8 @@ class StartupController {
                     description,
                     url,
                     logo_url,
-                    user_id: auth.user.id
+                    user_id: auth.user.id,
+                    approved: false,
                 }
             )
       
