@@ -4,7 +4,6 @@ const User = use('App/Models/User')
 class UserController {
     async login ({ auth, request, response }) {
         try {
-            console.log('loggging attempt')
             const { email, password } = request.all()
             await auth.attempt(email, password)
     

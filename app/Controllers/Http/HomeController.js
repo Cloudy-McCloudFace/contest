@@ -6,11 +6,11 @@ class HomeController {
         try { 
             const allStartups = await Startup   
                                 .query()
+                                .where('approved', true)
                                 .withCount('votes')
                                 .fetch()
  
-            console.log(allStartups.toJSON())
-            return view.render('home', { startups: allStartups.toJSON() })
+            return view.render('pages.home', { startups: allStartups.toJSON() })
 
         }
         catch (error) {

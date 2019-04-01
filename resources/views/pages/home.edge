@@ -3,8 +3,11 @@
 @section('content')
   <h1>HOME</h1>
   @loggedIn
-    You are logged in!
-    {{ startups[0].name }}
+    @is('administrator')
+    <h1>MOTHERFUCKING ADMIN IN THIS BITCH</h1>
+    @endis
+  @endloggedIn
+  @loggedIn
     @each(startup in startups)
       <div class="startup">
       <img src="{{ startup.logo_url }}"/>
