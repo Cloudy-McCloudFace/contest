@@ -3,6 +3,11 @@
 @section('content')
   <h1>HOME</h1>
   @loggedIn
+  @is('administrator')
+   <h1>MOTHERFUCKING ADMIN IN THIS BITCH</h1>
+  @endis
+@endloggedIn
+  @loggedIn
     You are logged in!
     {{ startups[0].name }}
     @each(startup in startups)

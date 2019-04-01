@@ -1,21 +1,30 @@
-'use strict'
+const Factory = use('Factory')
 
-/*
-|--------------------------------------------------------------------------
-| Factory
-|--------------------------------------------------------------------------
-|
-| Factories are used to define blueprints for database tables or Lucid
-| models. Later you can use these blueprints to seed your database
-| with dummy data.
-|
-*/
+Factory.blueprint('Adonis/Acl/Role', (faker, index, data) => {
+  const defaultValue = {
+    slug: 'administrator',
+    name: 'Administrator'
+  }
 
-/** @type {import('@adonisjs/lucid/src/Factory')} */
-// const Factory = use('Factory')
+  return Object.assign(defaultValue, data)
+})
 
-// Factory.blueprint('App/Models/User', (faker) => {
-//   return {
-//     username: faker.username()
-//   }
-// })
+Factory.blueprint('App/Models/User', (faker, index, data) => {
+  const defaultValue = {
+    username: faker.username(),
+    email: faker.email(),
+    password: 'secret',
+  }
+
+  return Object.assign(defaultValue, data)
+})
+
+Factory.blueprint('App/Models/Post', (faker) => {
+  return {
+    title: faker.sentence(),
+    body: faker.paragraph(),
+    user_id: async () => {
+      return (await Factory.model('App/Models/User').create()).id
+    }
+  }
+})
