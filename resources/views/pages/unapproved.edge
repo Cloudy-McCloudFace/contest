@@ -1,0 +1,29 @@
+@layout('base.layout')
+
+@section('content')
+  
+  @loggedIn
+    @is('administrator')
+    <h1>Unapproved Startups</h1>
+        @each(startup in startups)
+        <div class="startup">
+        <img src="{{ startup.logo_url }}"/>
+            <div class="startup-data">
+            <h3>{{ startup.name }}</h3>
+            <p>{{ startup.description }}</p>
+            </div>
+            <div class="startup-actions">
+            <form action="/approve/{{ startup.id }}" method="POST">
+                {{ csrfField() }}
+                <input type="submit" value="Approve">
+            </form>
+            </div>
+        </div>
+        @endeach
+    @endis
+  @else
+  <a href="/login">Click here</a> to login.
+  @endloggedIn
+@endsection
+
+

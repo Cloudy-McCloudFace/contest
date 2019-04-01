@@ -21,6 +21,12 @@ Route.on('/').render('welcome')
 Route.get('/home', 'HomeController.render')
      .middleware('auth')
 
+Route.get('/unapproved', 'UnapprovedController.show')
+     .middleware(['auth', 'is:administrator'])
+
+Route.post('/approve/:startup_id', 'UnapprovedController.approve')
+     .middleware(['auth', 'is:administrator'])
+
 Route.on('/register').render('register')
 Route.post('/register', 'UserController.register').as('register')
 
@@ -31,6 +37,7 @@ Route.get('/logout', 'UserController.logout')
 
 Route.on('/submit-startup').render('submit-startup')
      .middleware('auth')
+
 Route.post('/submit-startup', 'StartupController.create').as('submit-startup')
 
 Route.post('/vote/:startup_id', 'VoteController.submitVote')

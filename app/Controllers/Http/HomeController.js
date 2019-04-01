@@ -6,6 +6,7 @@ class HomeController {
         try { 
             const allStartups = await Startup   
                                 .query()
+                                .where('approved', true)
                                 .withCount('votes')
                                 .fetch()
  
