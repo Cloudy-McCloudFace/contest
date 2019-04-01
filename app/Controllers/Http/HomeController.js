@@ -11,7 +11,7 @@ class HomeController {
                                 .fetch()
  
             console.log(allStartups.toJSON())
-            return view.render('home', { startups: allStartups.toJSON() })
+            return view.render('pages.home', { startups: allStartups.toJSON() })
 
         }
         catch (error) {
