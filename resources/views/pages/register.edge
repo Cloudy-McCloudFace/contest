@@ -2,16 +2,25 @@
 
 @section('content')
   <section>
-      <h1>Register</h1>
-      <form action="{{ route('register') }}" method="POST">
+      <h1 class="mb-5">Register</h1>
+      <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" action="{{ route('register') }}" method="POST">
         {{ csrfField() }}
-        <label for="username">Username</label>
-        <input type="text" name="username" id="username">
-        <label for="username">Email</label>
-        <input type="email" name="email" id="email">
-        <label for="password">Password</label>
-        <input type="text" name="password" id="password">
-        <input type="submit" value="submit">
+        <label class="block text-grey-darker text-sm font-bold mb-2" for="username">
+            Username
+          </label>
+        <input class="shadow mb-4 appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" name="username" id="username" type="text" placeholder="Username">
+
+        <label class="block text-grey-darker text-sm font-bold mb-2" for="email">
+            Email
+          </label>
+        <input class="shadow mb-4 appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" name="email" id="email" type="email" placeholder="Email">
+
+        <label class="block text-grey-darker text-sm font-bold mb-2" for="password">
+            Password
+          </label>
+        <input class="shadow mb-4 appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" name="password" id="password" type="text" placeholder="Password">
+
+        <input class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" value="submit">
       </form>
     </section>
 @endsection

@@ -3,11 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <title>OVHcloud Contest</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="bg-grey-lightest">
     @include('partials.main-menu')
-    <div class="page-content">
-        @!section('content') 
+    <div class="container mx-auto px-4">
+        <div class="page-content">
+            @!section('content') 
+        </div>
     </div>
 </body>
 </html>
