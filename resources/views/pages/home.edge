@@ -8,6 +8,17 @@
     @endis
   @endloggedIn
   @loggedIn
+  @component('components.card')
+      @slot('title')
+          Forbidden
+      @endslot
+      @slot('content')
+          Forbidden
+      @endslot
+      @slot('actions')
+          Forbidden
+      @endslot
+  @endcomponent
     @each(startup in startups)
       <div class="startup">
       <img src="{{ startup.logo_url }}"/>
