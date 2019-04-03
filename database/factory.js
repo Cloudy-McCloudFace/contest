@@ -15,16 +15,19 @@ Factory.blueprint('App/Models/User', (faker, index, data) => {
     email: faker.email(),
     password: 'secret',
   }
-
   return Object.assign(defaultValue, data)
 })
 
-Factory.blueprint('App/Models/Post', (faker) => {
-  return {
-    title: faker.sentence(),
-    body: faker.paragraph(),
-    user_id: async () => {
-      return (await Factory.model('App/Models/User').create()).id
-    }
+Factory.blueprint('App/Models/Startup', (faker, index, data) => {
+  console.log(faker);
+  const defaultValue = {
+    name: faker.company(),
+    description: faker.paragraph({ sentences: 2}),
+    url: faker.url(),
+    logo_url: faker.avatar({ protocol: 'https'}),
+    user_id: data.user_id,
+    approved: true,
   }
+  return Object.assign(defaultValue, data)
 })
+
