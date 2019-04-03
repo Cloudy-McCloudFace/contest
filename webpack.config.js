@@ -24,3 +24,6 @@ module.exports = {
     rules: scriptRules()
   },
 }
+
+// Run Webpack
+// ./node_modules/.bin/webpack --mode development
