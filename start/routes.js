@@ -16,12 +16,9 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
-// Route.on('/').render('pages.welcome')
-
 Route.get('/', 'HomeController.render')
 
 Route.get('/startups', 'StartupListingController.render')
-     .middleware('auth')
 
 Route.get('/unapproved', 'UnapprovedController.show')
      .middleware(['auth', 'is:administrator'])

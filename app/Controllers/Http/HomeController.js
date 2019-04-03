@@ -6,6 +6,7 @@ class HomeController {
         try {
             const allStartups = await Startup   
                         .query()
+                        .has('votes')
                         .withCount('votes')
                         .fetch()
             const startups = allStartups.toJSON()
