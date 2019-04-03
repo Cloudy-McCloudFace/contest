@@ -24,7 +24,7 @@ class VoteController {
                 await newVote.save()
             }
 
-            response.redirect('/home')
+            response.redirect('/startups')
         } 
         catch (error) {
             console.log(error)
