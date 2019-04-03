@@ -18,7 +18,7 @@ const Route = use('Route')
 
 Route.on('/').render('pages.welcome')
 
-Route.get('/home', 'HomeController.render')
+Route.get('/startups', 'StartupListingController.render')
      .middleware('auth')
 
 Route.get('/unapproved', 'UnapprovedController.show')

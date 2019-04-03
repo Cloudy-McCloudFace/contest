@@ -1,12 +1,12 @@
 @layout('base.layout')
 
 @section('content')
-  <h1>HOME</h1>
+  <h1>Startups</h1>
   @loggedIn
     @is('administrator')
     <h2>You are an admin</h2>
     @endis
-    <div class="flex justify-between mb-4"">
+    <div class="flex flex-wrap justify-between mb-4">
       @each(startup in startups)
         @component('components.card')
             @slot('url')
@@ -28,7 +28,11 @@
         @endcomponent
       @endeach 
     </div>
-
+    <div class="pagination">
+      @each(page in range(lastPage + 1))
+        <a href="/startups?page={{ page }}">{{ page }}</a>
+      @endeach
+    </div>
   @else
   <a href="/login">Click here</a> to login.
   @endloggedIn

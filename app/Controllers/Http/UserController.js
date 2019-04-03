@@ -7,7 +7,7 @@ class UserController {
             const { email, password } = request.all()
             await auth.attempt(email, password)
     
-            response.redirect('/home')
+            response.redirect('/')
         }
         catch (error) {
             console.log(error);
