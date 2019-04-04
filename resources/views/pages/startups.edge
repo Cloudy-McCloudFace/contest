@@ -8,24 +8,26 @@
     @endis
     <div class="flex flex-wrap justify-between mb-4">
       @each(startup in startups)
-        @component('components.card')
-            @slot('url')
-              {{ startup.logo_url }}
-            @endslot
-            @slot('title')
-              {{ startup.name }}
-            @endslot
-            @slot('content')
-              <p>{{ startup.description }}</p>
-              <p>Total Votes: <strong>{{ startup['__meta__']['votes_count'] }}</strong></p>
-              <p><a href="{{{ startup.url }}}" target="_blank">Visit Site</a></p>
-            @endslot
-            @slot('actions')
-              <form action="/vote/{{ startup.id }}" method="POST">
-                <input type="submit" value="Vote for me!" class="font-bold py-2 px-4 rounded bg-blue text-white">
-              </form>
-            @endslot
-        @endcomponent
+        <div class="w-1/4 mb-4 ">
+          @component('components.card')
+              @slot('url')
+                {{ startup.logo_url }}
+              @endslot
+              @slot('title')
+                {{ startup.name }}
+              @endslot
+              @slot('content')
+                <p>{{ startup.description }}</p>
+                <p>Total Votes: <strong>{{ startup['__meta__']['votes_count'] }}</strong></p>
+                <p><a href="{{{ startup.url }}}" target="_blank">Visit Site</a></p>
+              @endslot
+              @slot('actions')
+                <form action="/vote/{{ startup.id }}" method="POST">
+                  <input type="submit" value="Vote for me!" class="font-bold py-2 px-4 rounded bg-blue text-white">
+                </form>
+              @endslot
+          @endcomponent
+        </div>
       @endeach 
     </div>
     <div class="pagination">

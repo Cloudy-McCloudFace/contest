@@ -21,7 +21,7 @@ class StartupController {
       
             await startup.save()
       
-            response.redirect('/home')
+            response.redirect('/')
 
         }
         catch (error) {

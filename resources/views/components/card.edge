@@ -1,9 +1,9 @@
-<div class="w-1/4 rounded overflow-hidden shadow-lg mx-1 flex flex-col mb-4">
-  <img class="w-full object-contain flex-grow" src="{{{ $slot.url }}}" alt="Sunset in the mountains">
+<div class="mx-1 rounded overflow-hidden shadow-lg flex flex-col h-full">
+  <img class="w-full object-contain" src="{{{ $slot.url }}}" alt="Sunset in the mountains">
   <div class="px-6 py-4">
     <div class="font-bold text-xl mb-2">{{ $slot.title }}</div>
     <p class="text-grey-darker text-base">
-        {{{ $slot.content }}}
+      {{{ $slot.content }}}
     </p>
   </div>
   <div class="px-6 py-4 mt-auto">
